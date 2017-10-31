@@ -1,0 +1,101 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>二级联动列表</title>
+<meta charset="utf-8" />
+<style>
+	.hide{ display: none; }
+</style>
+
+
+</head>
+<body>
+	<select name="family">
+		<option>-请选择-</option>
+	</select>
+	
+	<select name="laptop" class="hide">
+    <option>-请选择-</option>
+	</select>
+  <script src="ajax.js"></script>
+  <script>
+    var selFamily=
+      document.querySelector("[name=family]");
+    var selLaptop=
+      document.querySelector("[name=laptop]");
+	  ajax("get","7_getFamily.php","")
+      .then(data=>{
+      //创建frag
+      var frag=document.createDocumentFragment();
+      //遍历data中每个family
+      for(var f of data){
+      /*
+        //每遍历一个family就创建一个option
+        var opt=document.createElement("option");
+        //设置option的内容为family的fname
+        opt.innerHTML=f.fname;
+        //设置option的value为family的fid
+        opt.value=f.fid;
+        //将option追加到frag中
+        frag.appendChild(opt);
+      */
+        frag.appendChild(
+          new Option(f.fname,f.fid));
+      }//(退出循环)
+      //将frag追加到selFamily中
+      selFamily.appendChild(frag);
+      //为selFamily绑定onchange事件
+      selFamily.onchange=function(){
+        //获得当前选中项的值
+        var fid=this.value;
+        //如果fid是-请选择-
+        if(fid=="-请选择-"){
+          //设置selLaptop的class为hide
+          selLaptop.className="hide";
+        }else{//否则
+          //向7_getLaptopByFid.php发送get请求，拼接fid=变量fid作为参数
+          ajax("get","7_getLaptopByFid.php?fid="+fid,"")
+            .then(data=>{//然后,获得data
+              //清空selLaptop的内容
+              selLaptop.innerHTML="";
+              //创建文档片段frag
+              var frag=
+                document.createDocumentFragment();
+            /*
+              //创建option
+              var opt=
+                document.createElement("option");
+              //设置option的内容为-请选择-
+              opt.innerHTML="-请选择-";
+              //将option追加到frag中
+              frag.appendChild(opt);
+            */
+              frag.appendChild(
+                new Option("-请选择-"))
+              //遍历data中每个商品
+              for(var l of data){
+              /*
+                //每遍历一个就创建一个option
+                var opt=
+                  document.createElement("option");
+                //设置option的value为当前商品的lid
+                opt.value=l.lid;
+                //设置option的内容为当前商品的title
+                opt.innerHTML=l.title;
+                //将option追加到frag
+                frag.appendChild(opt);
+              */
+                frag.appendChild(
+                  new Option(l.title,l.lid));
+              }//(退出循环)
+              //将frag追加到selLaptop中
+              selLaptop.appendChild(frag);
+              //清除selLaptop的class
+              selLaptop.className="";
+            })
+        }
+      }
+    })
+  </script>
+</body>
+</html>

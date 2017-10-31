@@ -1,0 +1,38 @@
+/*简单--定制方式，添加样式的权重*/
+body .navbar-default{
+    background-color: #0171c5;
+    border-color:#015ea4;
+}
+
+body .navbar-default .navbar-nav > li > a{
+    color:#fff;
+}
+
+/*固定导航栏让出高*/
+body{
+    margin-top: 60px;/*固定导航栏让出高*/
+}
+.my-main{
+    background: #0062a9;
+    color:#fff;
+}
+.my-logo{
+    display: inline-block;
+    width:63px;
+    height:42px;
+    background: url("../img/hdr-spr.png")0 -512px no-repeat;
+    margin-top:3px;
+}
+.my-caption{
+    position: relative;
+}
+.my-caption h3{
+    margin-top:0;
+}
+@media screen and (min-width: 768px){
+    .my-caption{
+        position: absolute;
+        bottom: 0px;
+    }
+}
+

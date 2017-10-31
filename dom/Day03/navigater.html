@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		if(navigator.cookieEnabled){
+			document.write("已启用cookie!<br>");
+		}else{
+			document.write("cookie已被禁用！无法记住密码！<br>");
+		}
+		var ua=navigator.userAgent;
+		var browser="unknown",version=0;
+		if (ua.indexOf('MSIE')!=-1) {
+			browser="MSIE";
+		}else if (ua.indexOf('firefox')!=-1) {
+			browser="firefox";
+		}else if (ua.indexOf("Chrome")!=-1) {
+			browser="Chrome";
+		}else if (ua.indexOf('Trident')!=-1) {
+			browser="IE";
+			version=11;
+		}
+		document.write(browser+"<br>");
+		if (version==0&&browser!="unknown") {
+			var i= ua.indexOf(browser);
+			i+=browser.length+1;
+			version=parseFloat(ua.slice(i,i+3));
+		}
+		document.write(version+"<br>");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

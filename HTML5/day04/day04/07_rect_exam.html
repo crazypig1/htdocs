@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{text-align: center}
+        svg{background: #ddd}
+    </style>
+</head>
+<body>
+     <h1>h5-绘图矩形</h1>
+     <svg width="500" height="400">
+         <rect id="r2" width="50" height="1" x="50" y="50"
+                 ></rect>
+         <rect id="r3" width="50" height="1" x="150" y="50"
+                 ></rect>
+     </svg>
+     <script>
+            var t = setInterval(function(){
+                //r2.height error
+                var h1 = r2.getAttribute("height");
+                var h1 = parseInt(h1);
+                h1 += 5;
+                r2.setAttribute("height",h1);
+                if(h1>300){
+                    clearInterval(t);
+                }
+            },50);
+     </script>
+</body>
+</html>

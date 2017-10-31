@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+   <h1>拖动的目标对象可能触发事件</h1>
+   <img src="img/1.png" id="trash"/>
+   <hr/>
+   <img src="img/p3.png" id="p3"/>
+   <script>
+       //源对象被拖动着进入目标对象
+       trash.ondragenter = function(){
+           console.log("1: drag enter");
+       }
+       //源对象被拖动着悬停在目标对象上方
+       trash.ondragover = function(e){
+           e.preventDefault();
+           console.log("2: drag over");
+       }//16:06--16:08
+       //源对象被拖动着离开目标对象
+       trash.ondragleave = function(){
+           console.log("3: drag leave");
+       }
+       //源对象被拖动着在目标对象上方释放
+       trash.ondrop = function(){
+           console.log("4:drop");
+       }
+   </script>
+</body>
+</html>

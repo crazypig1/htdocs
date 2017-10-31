@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	function asd(){
+		var fbb={
+			yuwen:121,
+			shxue:60,
+			yingyu:150
+		}
+		cosole.log(fbb.yuwen);
+		cosole.log(fbb.shxue);
+		cosole.log(fbb.yingyu);
+
+
+
+	}
+
+asd();
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

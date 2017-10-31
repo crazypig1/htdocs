@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.min.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class="container">
+     <h3>js插件--手风琴</h3>
+     <h3>手风琴=面板组件+折叠插件</h3>
+
+    <div class="panel-group" id="pgroup">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+            <a href="#xyz" data-toggle="collapse" data-parent="#pgroup">西游记</a>
+        </div>
+        <div id="xyz" class="collapse in panel-collapse">
+             <div class="panel-body">唐三藏+孙悟空</div>
+        </div>
+     </div>
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+            <a href="#xyz2" class="collapsed" data-toggle="collapse" data-parent="#pgroup">三国演义</a>
+        </div>
+        <div id="xyz2" class="collapse panel-collapse">
+            <div class="panel-body">刘关张</div>
+        </div>
+    </div>
+    </div> <!--prgoup end-->
+
+
+    <!--原因:-->
+    <!--现在的画板个自独立，不是一个组，可以同时打开列表-->
+    <!--panel-group-->
+    <!--一组面板属于某个父元素,在父元素创建id=prgoup-->
+    <!--子面板添加属于 data-parent="prgoup"-->
+    <!--默认显示面板:collapse  -> collapse in-->
+    <!--多个默认隐藏面板:collapsed -> collapse-->
+
+
+</div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/bootlint.js"></script>
+<script>
+  bootlint.showLintReportForCurrentDocument([]);
+</script>
+</body>
+</html>

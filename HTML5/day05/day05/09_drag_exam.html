@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{text-align: center}
+        #box{
+            border-top:1px solid #999;
+            padding: 1em;
+        }
+        #trash{
+          width: 200px;
+          height: 300px;
+        }
+    </style>
+</head>
+<body>
+   <h1>拖动的目标对象可能触发事件</h1>
+   <img src="img/1.png" id="trash"/>
+   <hr/>
+   <div id="box">
+       <img src="img/p3.png" id="p3"/>
+       <img src="img/p4.png" id="p4"/>
+       <img src="img/p5.png" id="p5"/>
+   </div>
+   <script>
+       //1:创建全局变量保存被拖动飞机编号
+       var planeId = null;
+       //2:获取所有拖动源对象为其绑定三个事件
+       var list = document.querySelectorAll("#box img");
+       for(var i=0;i<list.length;i++){
+           var plane = list[i];
+           plane.ondragstart = function(){
+               planeId = this.id;//刚拖动时记录拖动对象id
+           }
+           plane.ondrag = function(){}
+           plane.ondragend = function(){}
+       }
+       //3:拖动事件目标对象可能触发的事件
+       trash.ondragenter = function(){}
+       trash.ondragover = function(e){e.preventDefault()}
+       trash.ondragleave = function(){}
+       trash.ondrop = function(){
+           //根据元素的id查找img 元素,在#box进行删除
+           var img = document.getElementById(planeId);
+           box.removeChild(img);
+       }
+   </script>
+</body>
+</html>

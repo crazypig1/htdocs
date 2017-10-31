@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<title></title>
+	<script type="text/javascript" src="00-common.js"></script>
+	<script type="text/javascript">
+		function select(currentPage){
+			var xhr=createXhr();
+			var url="hang.php?currentPage="+currentPage;
+			xhr.open("get",url,true);
+			xhr.send(null);
+			xhr.onreadystatechange=function(){
+				if (xhr.readyState==4&&xhr.status==200) {
+					var resText=xhr.responseText;
+					var array=JSON.parse(resText);
+					console.log(array);
+				}
+
+			}
+
+		}
+	</script>
+</head>
+<body onload="select(5)">
+
+<form action="00-homework.php" method="post">
+	
+	<select id="hang1">
+	</select>
+	<select id="hang">
+		<option value="0">25</option>
+		<option value="1">50</option>
+		<option value="2">100</option>
+		<option value="3">250</option>
+		<option value="4">500</option>
+	</select>
+
+</form>
+</body>
+</html>

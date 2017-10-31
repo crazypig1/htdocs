@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .blue{background: #ddf;color:#33a}
+        .pink{background: #fdf;color:#a3a}
+        .dark{background: #333;color:#eee}
+    </style>
+    <h1>首页</h1>
+    <select  id="selectTheme">
+        <option value="blue">蔚兰天空</option>
+        <option value="pink">芭比公主</option>
+        <option value="dark">暗黑主题</option>
+    </select>
+    <a href="062_usercenter.html">查看用户中心</a>
+    <script>
+        //1:获取下拉菜单绑定事件onchange
+        selectTheme.onchange = function() {
+            //2:获取value
+            var v = this.value;
+            //3:用户选中主题应用body
+            document.body.className = v;
+            //4:把用户选中的主题名永久存储客户端
+            localStorage.setItem("userTheme",v);
+        }
+
+        //读取之前曾经选中的主题样式名
+        var v = localStorage.getItem("userTheme");
+        if(v){
+            document.body.className = v;
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

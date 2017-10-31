@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>h5读取数据storage</h1>
+<script>
+    var rs = sessionStorage["uname"];//读取数据
+    console.log(rs);
+    rs =sessionStorage.getItem("age");//读取数据
+    console.log(rs);
+    rs =sessionStorage.length; //数据个数
+    console.log(rs);
+    rs =sessionStorage.key(0);//下标
+    console.log(rs);
+    //sessionStorage.removeItem("age");//删除指定数据
+    //rs =sessionStorage.length; //数据个数
+    //console.log(rs);
+</script>
+</body>
+</html>

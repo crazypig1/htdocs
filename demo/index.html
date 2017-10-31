@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>登陆页面</h1>
+	<div id="a">
+	<a href="login.html" >请登录</a>
+	</div>
+	<script>
+		var a=document.getElementById('a');
+		var asd=sessionStorage.getItem("uname");
+		if(asd){
+        a.innerHTML = `
+             欢迎回来 ：${asd} <a href="logout.html">退出登录</a>
+          `;
+      }
+	</script>
+</body>
+</html>

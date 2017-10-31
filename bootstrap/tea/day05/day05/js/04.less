@@ -1,0 +1,69 @@
+//注释2:
+/*注释一.*/
+//第二种方式:css看不到
+
+//(1)检测.less是否是utf-8
+//1:声明变一个变量
+@baseColor:#393ce4;
+@baseWidth:100px;
+@baseHeight:100px;
+@jdRed:#e4393c;
+@thinBorder:3px;
+@baseFont:'SimeHei';
+@normalBorderStyle:solid;
+
+//2:应用变量
+.box{
+  font:@baseFont;
+  background: @baseColor;
+  width:@baseWidth;
+  height:@baseHeight/2;
+}
+/*算术运算*/
+@md-width:970px;
+@col-count:12;
+.col-md-1{
+  width: @md-width/@col-count;
+  background: @jdRed;
+}
+.col-md-2{
+  width:@md-width/@col-count*2;
+}
+/*样式混入*/
+.box2{
+  padding: 30px;
+  border:1px solid #aaa;
+  margin:20px;
+}
+.well2{
+  .box2;
+  background: @jdRed;
+}
+/*带参数的混入*/
+/*三个参数  @mb:30px 默认*/
+.box100(@pd,@bw,@mb:30px){
+  padding: @pd;
+  border:@bw solid @jdRed;
+  margin-bottom: @mb;
+}
+.well3{
+  .box100(10px,1px,5px);
+  background: #ccc;
+}
+/*函数*/
+.col-md-4{
+  width:floor(970px/12);
+  background: red;
+}
+.col-md-5{
+  width:ceil(970px/12);
+  background: lighten(@jdRed,40%);
+}
+
+
+
+
+
+
+
+

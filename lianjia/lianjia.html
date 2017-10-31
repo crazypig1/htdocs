@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#b{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			left: 0;
+			top: 100px;
+		}
+	</style>
+	<script>
+		function move(){
+			var elem=document.getElementById('b');
+			var xpos=elem.style.left;
+			// var ypos=parseInt(elem.style.top);
+			console.log(xpos);
+			// if (xpos==200&&ypos==100) {
+			// 	return true;
+			// }
+			if (xpos<200) {
+				xpos++;
+			}
+			// if (xpos>200) {
+			// 	xpos--;
+			// }
+			// if (ypos<100) {
+			// 	ypos++;
+			// }
+			// if (ypos>100) {
+			// 	ypos--;
+			// }
+			elem.style.left=xpos+"px";
+			// elem.style.top=ypos+"px";
+			// movement=setTimeout("move",10);
+		}
+	</script>
+</head>
+
+<body>
+	<div id="wai">
+		<a href="#" onclick="move()">xinfang</a>
+		<div id="b"></div>
+	</div>
+</body>
+</html>

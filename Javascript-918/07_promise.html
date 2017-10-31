@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="ajax.js"></script>
+</head>
+<body>
+	<script>
+		function conn(){
+			return new Promise(function(callback){
+				ajax("get","05-1-conn.php","","text")
+      			.then(text=>{
+        			console.log(text);
+        			callback();
+				});
+			});
+		}
+	</script>
+</body>
+</html>

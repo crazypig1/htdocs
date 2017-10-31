@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>
+		.box{
+			box-sizing: border-box;
+			overflow: hidden;
+			width: 854px;
+		}
+		img{
+			/*display: block;*/
+			position: relative;
+			left: 427px;
+			display: none;
+		}
+		.img1{
+			top:-300px;
+		}
+		.img2{
+			top:-300px;
+		}
+	</style>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>
+		黑科技爱仕达风口浪尖花生豆腐
+		阿道夫撒地方
+	</h1>
+	<div class="box">
+		<video id="v3" src="birds.mp4" controls="true">
+			<source src="birds.mp4">
+			<source src="birds.ogg">
+			<source src="birds.webm">
+			您的浏览器太垃圾了
+		</video>
+		<img src="pause.png" class="ctrl img1">
+		<img src="play.png"  class="ctrl img2">
+	</div>
+	<script>
+		var v3=document.getElementById('v3');
+		var box=document.querySelector('.box');
+		var ctrl=document.querySelectorAll(".ctrl");
+		var img1=document.querySelector(".img1");
+		var img2=document.querySelector(".img2");
+		box.onmouseenter=function(){
+			if (v3.paused) {
+				box.style.opacity=0.8;
+				img2.style.display="block";
+			} else{
+				box.style.opacity=0.8;
+				img1.style.display="block";
+			}
+		}
+		box.onmouseleave=function(){
+			box.style.opacity=1;
+			for(var i=0;i<ctrl.length;i++){
+			ctrl[i].style.display="none";
+			}
+		}s
+		 	box.onclick=function(){
+				if (v3.paused) {
+					v3.play();
+					img1.style.display="block";
+					img2.style.display="none";
+				}else{
+					v3.pause();
+					img1.style.display="none";
+					img2.style.display="block";
+				}
+			}
+		
+	</script>
+</body>
+</html>

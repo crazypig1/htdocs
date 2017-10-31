@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<style>
+		#d1{
+			width:400px;
+			height:400px;
+			background:red;
+			float:right;
+			/*相对定位：配合着 #d2 做绝对定位*/
+			position:relative;
+		}
+		#d2{
+			width:200px;
+			height:200px;
+			background:green;
+			position:absolute;
+			left:0px;
+			bottom:0px;
+		}
+		#d3{
+			width:100px;
+			height:100px;
+			background:blue;
+
+			position:absolute;
+			right:0px;
+			bottom:0px;
+		}
+	</style>
+ </head>
+ <body>
+  <div id="d1">
+		<div id="d2">
+			<div id="d3"></div>
+		</div>
+	</div>
+ </body>
+</html>

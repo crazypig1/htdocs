@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			text-align: center;
+		}
+	</style>
+	<script src="random.js"></script>
+</head>
+<body>
+	<svg id="s3" width="1366" height="800">
+    </svg>
+	<script>
+      	for(var i=0;i<6050;i++){
+      		var cc = document.createElementNS("http://www.w3.org/2000/svg",
+                   "circle");
+	      	cc.setAttribute("r", rn(5, 25));//大小随机
+	        cc.setAttribute("cx", rn(0, 1366));//位置随机
+	        cc.setAttribute("cy", rn(0, 800));//位置随机
+	        cc.setAttribute("fill", rc(0, 255));//颜色随机
+	        cc.setAttribute("fill-opacity", Math.random());
+	        s3.appendChild(cc);
+      	
+      	console.log(cc);
+      	cc.onmouseover=function(){
+      		var that=this;
+      		that.onmouseover=null;
+      		var timer=setInterval(function(){
+      			var r=that.getAttribute("r");
+      			var p=that.getAttribute("fill-opacity");
+      			var cy=that.getAttribute("cy");
+      			r*=1.008;
+      			
+      			cy-=2;
+      			that.setAttribute("r",r);
+      			that.setAttribute("cy",cy);
+
+      			if (r>30) {
+      				p*=0.9;
+      				that.setAttribute("fill-opacity",p);
+      			}
+      			
+      			if(r>40){
+      				clearInterval(timer);
+      				s3.removeChild(that);
+      			}
+      		},50)
+      	}
+}
+	</script>
+</body>
+</html>

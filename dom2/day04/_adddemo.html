@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btnShoot">shoot</button><br>
+	<button id="btnAward">获得跟踪导弹</button><br>
+	<script>
+		btnShoot.onclick=function(){
+			console.log("发射普通导弹...");
+		}
+		function getShoot2(){
+			var n=3;
+			return function(){
+				if (n>0) {
+					n--;
+					alert("发射跟踪导弹");
+				}else{
+					btnShoot.removeEventListener
+					("click",arguments.callee);
+				}
+			};
+		}
+		btnAward.onclick=function(){
+			btnShoot.addEventListener(
+				"click",getShoot2());
+		}
+	</script>
+</body>
+</html>

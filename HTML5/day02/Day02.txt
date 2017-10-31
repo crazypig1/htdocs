@@ -1,0 +1,86 @@
+1、修改用户的操作
+	1、根据要修改用户的ID，将用户信息显示在 04-update-user.php 上(25分钟)
+		推荐步骤：
+			1、点击 00-homework.html 中的修改操作时，将用户id 提交给 04-update-user.php
+			2、在 04-update-user.php 中根据 传递过来的ID查找信息，并转换成关联数组 mysqli_fetch_assoc()
+			3、将数据显示在对应的表单控件中
+
+	2、在 04-update.php 接收 04-update-user.php 传递过来的数据进行修改
+		推荐步骤：
+			1、接收表单提交过来的所有数据
+			2、将所有的数据拼成一个sql语句
+				update xz_user set xxx=xxx,xxx=xxx where uid=xxx
+			3、执行操作，并响应结果
+2、分页查询
+	1、SQL语句
+		//从第1条记录开始查询，共查询5条
+		select * from xz_user limit 0,5
+		
+		//从第26条记录开始查询，共查询10条
+		select * from xz_user limit 25,10
+
+		//每页显示 10($pageSize) 条数据，当前想看第5($currentPage)页的数据
+		//第1页
+		select * from xz_user limit 0,10
+		//第2页
+		select * from xz_user limit 10,10
+		//第3页
+		select * from xz_user limit 20,10
+		...
+		//第5页
+		select * from xz_user limit 40,10
+
+		重点：两个重要的数据要先知道
+			1、每页显示的行数 : $pageSize
+			2、当前要看的页数 : $currentPage
+
+		练习1：完成服务器端 $pageSize,$currentPage的声明和初始化(10分钟)
+			1、创建一个 05-list-page.php
+			2、接收前端传递过来的pageSize,如果没有pageSize的话，默认为10，并保存在$pageSize中
+			3、接收前端传递过来的currentPage,如果没有currentPage的话，默认为1，并保存在$currentPage中
+		练习2：根据$pageSize 和 $currentPage ，计算要显示的首条记录的下标,保存在$start中(2分钟)
+			$start = ($currentPage-1) * $pageSize;
+
+		练习3：根据$pageSize 和 $start 去数据库中执行数据的查询，并将结果保存在$result,再转换成一个关联数组(10分钟)
+			1、连接到数据库
+			2、拼SQL语句
+			3、执行查询并将结果保存在$result中
+			4、将$result转换成关联数组保存在$array中
+				mysqli_fetch_all ... ...
+		
+		练习4：根据$currentPage以及$pageSize去计算上一页，下一页，尾页 分别是多少
+			1、上一页
+				如果$currentPage 为1的话，那么上一页，仍然为1，否则，上一页就是$currentPage-1
+				计算 上一页并保存在 $prePage 中
+			2、尾页
+				1、查询xz_user表中共有多少条记录,->$total
+				2、用$total与$pageSize做运算
+					如果$total与$pageSize能整除，结果为尾页
+					否则ceil($total/$pageSize),就是尾页
+			3、下一页
+				如果$currentPage 为"尾页"的话，那么下一页仍然为 当前页，否则，下一页就是$currentPage+1
+				计算 下一页并保存在 $nextPage 中
+		练习5 ：
+			前端页面，
+			显示 uname,email,user_name,gender到页面上
+
+
+[
+	{"uid":1,"uname":"dingding","upwd":"123"},
+	{"uid":1,"uname":"dingding","upwd":"123"},
+	{"uid":1,"uname":"dingding","upwd":"123"},
+	{"uid":1,"uname":"dingding","upwd":"123"},
+	{"uid":1,"uname":"dingding","upwd":"123"},
+	{"uid":1,"uname":"dingding","upwd":"123"},
+	{"uid":1,"uname":"dingding","upwd":"123"},
+	{"uid":1,"uname":"dingding","upwd":"123"},
+	{"uid":1,"uname":"dingding","upwd":"123"},
+	{"uid":1,"uname":"dingding","upwd":"123"},
+	{"firstPage":1,"prePage":1,"nextPage":2,"totalPage":5}
+]
+
+
+
+
+
+

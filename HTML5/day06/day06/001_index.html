@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .blue{background: #ddf;color:#33a}
+        .pink{background: #fdf;color:#a3a}
+        .eyeshield{background: #333;color:#eee}
+    </style>
+    
+</head>
+
+<body>
+    <h1>首页</h1>
+    <select  id="selectTheme">
+        <option value="-1">-请选择-</option>
+        <option value="blue">蔚兰天空</option>
+        <option value="pink">芭比公主</option>
+        <option value="eyeshield">护眼模式</option>
+    </select>
+    <a href="002_usercenter.html">查看用户中心</a>
+    <script>
+       selectTheme.onchange=function (){
+        var v=this.value;
+        document.body.className = v;
+        localStorage.setItem("userTheme",v);
+       }
+        var v=localStorage.getItem("userTheme"); 
+        if(v){
+            document.body.className = v;
+        }  
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+*{box-sizing: border-box}
+body{
+    margin:0;
+    background: #fff;
+    font-size: 1em;
+}
+/*最外层div .container*/
+.container{margin: 0 auto;}
+.container:before{content: ' ';display: table;}
+/*变宽容器:一般用于容器中的子容器*/
+.container_fluid{width:100%}
+.left,.middle,.right{float:left}
+.my-img{float:left;padding: 10px 5px}
+
+/*针对PC屏幕的媒体查询*/
+@media screen and (min-width: 992px){
+    .container{width:970px}
+    .left,.right{width:20%}
+    .middle{width:60%}
+    .my-img{width:25%}
+}
+/*针对pad 750px; 1-3-*屏幕的媒体查询 17:12-17:17*/
+@media screen and (min-width: 768px) and (max-width: 991px){
+     .container{width:750px;color:green}
+    .left{width:25%}
+    .middle{width: 75%}
+    .right{display: none;}
+    .my-img{width: 25%}
+}
+/*针对phone 100% 100%-100%-0屏幕的媒体查询*/
+@media screen and (max-width: 767px){
+    .container{width: 100%;color:blue}
+    .left,.middle{width: 100%}
+    .right{display: none}
+    .my-img{width:50%}
+}
+
+
+

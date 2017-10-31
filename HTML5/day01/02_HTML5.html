@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1 id="hh">我的工资</h1>
+	<!-- <progress></progress>
+	<progress value="0.8" class="pro"></progress>
+	<progress value="0.1" id="pro"></progress> -->
+	<meter id="m3" min="0" max="100000" low="20000" high="50000" optimum="100000" value="5 "></meter>
+	<script>
+		// var time=setInterval(function(){
+		// 	var pro=document.getElementById('pro');
+		// 	var val=pro.value;
+		// 	val+=0.1;
+		// 	pro.value=val;
+		// 	if (val>1) {
+		// 		clearInterval(time);
+		// 		document.getElementById("hh").innerHTML=".avi下载完成";
+		// 	}
+		// },100)
+		var m3=document.getElementById('m3');
+		var a=0;
+		var time=setInterval(function(){
+			m3.value+=150;
+			if (m3.value==100000) {
+				// clearInterval(time);
+				a=a+500;
+				m3.value=a;
+			}
+			if(a>100000){
+			 	document.getElementById("hh").innerHTML="充电完成";
+			}
+		},1)
+	</script>
+</body>
+</html>

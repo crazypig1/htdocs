@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			text-align: center;
+		}
+		#box{
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<h1>asdf</h1>
+	<div id="box"></div>
+	<script src="../lib/two.min.js"></script>
+	<script>
+		//创建two对象，指定画布宽度，canvas,svg
+		var two=new Two({
+			width:800,
+			height:400,
+			type:Two.Types.svg
+		}).appendTo(box);
+		// 创建矩形圆形
+		var c=two.makeCircle(200,200,100);
+		var r=two.makeRectangle(600,200,200,200);
+		r.rotation=60*Math.PI/180
+		two.update();
+	</script>
+</body>
+</html>

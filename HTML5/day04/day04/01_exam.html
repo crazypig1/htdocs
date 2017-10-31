@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{text-align: center}
+        canvas{background: #ddd;}
+    </style>
+</head>
+<body>
+    <canvas id="c3" width="500" height="400"></canvas>
+    <script>
+        //功能:二个旋转飞机，飞机1(15度)，飞机2(30度)
+        //飞机2旋转速度是飞机1二倍
+        //旋转:平移+旋转+绘图+逆向旋转+逆向平移
+        //飞机1
+        var ctx = c3.getContext("2d");
+        var p3 = new Image();
+        p3.src = "img/p3.png";
+        p3.onload = function() {
+            var deg1 = 15;//飞机1旋转度数
+            var deg2 = 30;//飞机2旋转度数
+
+            setInterval(function(){
+                //第一架飞机
+                ctx.translate(100, 50);        //平移圆点
+                ctx.rotate(deg1*Math.PI/180); //旋转
+                ctx.drawImage(p3,-100,-50);   //旋转以自己为中心
+                ctx.rotate(-deg1*Math.PI/180);//逆向旋转
+                ctx.translate(-100, -50);      //逆向平移圆点
+                deg1 += 15;
+                //第二架飞机
+                ctx.translate(100,350);        //平移圆点
+                ctx.rotate(deg2*Math.PI/180); //旋转
+                ctx.drawImage(p3,-100,-50);   //绘图
+                ctx.rotate(-deg2*Math.PI/180);//逆向旋转
+                ctx.translate(-100,-350);     //逆向平移
+                deg2 += 30;
+            },100);
+
+
+
+        }
+
+        //飞机2
+    </script>
+</body>
+</html>

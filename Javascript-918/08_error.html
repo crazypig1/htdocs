@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script src="ajax.js"></script>
+  <script>
+function conn(){            // then    catch
+  return new Promise((resolve,reject)=>{
+    ajax("get","05-1-conn.php","","text")
+    .then(text=>{
+      var r=Math.random()>0.2;
+      if(r){
+        console.log(text);
+        resolve();
+      }else
+        reject("杩炴帴鍑洪敊!");
+    });
+  });
+}
+function query(){
+  return new Promise((resolve,reject)=>{
+    ajax("get","05-2-query.php","","text")
+    .then(text=>{
+      var r=Math.random()>0.2;
+      if(r){
+        console.log(text);
+        resolve();
+      }else
+        reject("鏌ヨ鍑洪敊!");
+    });
+  });
+}
+function response(){
+  return new Promise((resolve,reject)=>{
+    ajax("get","05-3-response.php","","text")
+    .then(text=>{
+      var r=Math.random()>0.2;
+      if(r){
+        console.log(text);
+        resolve();
+      }else
+        reject("杩斿洖鍝嶅簲鍑洪敊!");
+    });
+  })
+}
+function end(){ console.log("鎿嶄綔瀹屾垚!"); }
+conn()/*鎶涘嚭鎵胯*/  
+.then(query)/*灏唓uery鏀惧叆鎵胯涓瓑寰呮墽琛�*/
+/*query鎵ц鍚庯紝鍙堟姏鍑烘柊鐨勬壙璇�*/
+.then(response)/*灏唕esponse鏀惧叆鎵胯涓瓑寰呮墽琛�*/
+/*response鎵ц鍚庯紝鍙堟姏鍑烘柊鐨勬壙璇�*/
+.then(end)/*灏唀nd鏀惧叆鎵胯涓瓑寰呮墽琛�*/
+/*涔嬪墠浠讳綍涓€涓猼hen鍑洪敊锛屽悗缁璽hen涓嶅啀鎵ц锛岃€屾槸鑷姩鍒扮粨灏捐皟鐢╟atch*/
+.catch(err=>console.log(err))
+/*鎶涘嚭鎵胯,鐒跺悗灏嗗悗缁嚱鏁版斁鍏ユ壙璇轰腑绛夊緟鎵ц*/
+  </script>
+ </body>
+</html>

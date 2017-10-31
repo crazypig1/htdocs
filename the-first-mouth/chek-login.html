@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript">
+		function checklogin(){
+			var xhr=createXhr();
+			var uname=$("uname").value;
+			var upwd=$("upwd").value;	
+			xhr.open("post","check-login.php",true);
+			xhr.onreadystatechange=function(){
+				if (xhr.readyState===4 && xhr.status===200) {
+					var resText=xhr.responseText;
+					$("show").innerHTML=resText;
+					
+				}
+			}
+			xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			xhr.send("uname="+uname+"&upwd="+upwd);
+		}
+	</script>
+</head>
+<body>
+<div id="show">8</div>
+<p><input type="text" id="uname"/></p>
+<p><input type="password" id="upwd"/></p>
+<p><input type="button" value="登录" onclick="checklogin()"></p>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

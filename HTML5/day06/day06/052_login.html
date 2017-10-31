@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+  <h1>登录 </h1>
+  用户名 <input type="text" id="uname"/> <br/>
+  密码 <input type="password" id="upwd"/> <br/>
+  <input type="button" value="登录" id="btn1"/>
+  <script>
+    btn1.onclick = function(){
+        var n = uname.value;
+        //此处应该发起异步请求，进行登录验证
+        //假设验证成功
+        //保存此次登录用户名--sessionStorage
+        sessionStorage.setItem("uname",n);
+        alert("登登成功! 3s后将自动跳转到首页...");
+        setTimeout(function(){
+            location.href = "051_index.html";
+        },3000);
+    }
+  </script>
+</body>
+</html>

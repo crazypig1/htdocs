@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    body{
+        margin: 0px;
+    }
+        /*body{text-align: center}*/
+        /*canvas{background: #ddd}*/
+        #c3{
+            position: relative;
+            left:0px;
+            /*background-color:#CCC;*/
+            margin:0px;
+            /*transform: all 5s linear;*/
+        }
+        #c4{
+            margin:0px;
+            /*background-color:#CCC;*/
+        }
+    </style>
+</head>
+<body>
+    <canvas id="c3" width="500" height="400"></canvas>
+    <canvas id="c4" width="800" height="400"></canvas>
+    <script>
+        //1:获取画笔
+        var ctx = c3.getContext("2d");
+        var ctx2 = c4.getContext("2d");
+        function closeMouth(){
+            //圆脸
+            ctx.beginPath();
+            ctx.arc(250,200,100,0,2*Math.PI);
+            ctx.fillStyle="#FEFB00";
+            ctx.lineTo(250,200);
+            ctx.fill();
+            ctx.stroke();
+            //眼睛
+            ctx.beginPath();
+            ctx.arc(250,150,25,0,2*Math.PI);
+            ctx.fillStyle="#38f";
+            ctx.fill();
+            //眼神
+            ctx.beginPath();
+            ctx.arc(263,135,3,0,2*Math.PI);
+            ctx.fillStyle="#fff";
+            ctx.fill();
+        }
+        //closeMouth();
+
+        function openMouth(){
+            ctx.beginPath();
+            ctx.arc(250,200,100,45*Math.PI/180,315*Math.PI/180);
+            ctx.fillStyle="#FEFB00";
+            ctx.lineTo(250,200);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+            
+            //眼睛
+            ctx.beginPath();
+            ctx.arc(250,150,25,0,2*Math.PI);
+            ctx.fillStyle="#38f";
+            ctx.fill();
+            //眼神
+            ctx.beginPath();
+            ctx.arc(270,150,3,0,2*Math.PI);
+            ctx.fillStyle="#fff";
+            ctx.fill();
+        }
+        function smball(x,y){
+           
+            ctx2.beginPath();
+            // var x=parseInt(Math.random()*470);
+            // var y=parseInt(Math.random()*370);
+            ctx2.arc(x,y,30,0,2*Math.PI);
+            ctx2.fillStyle="#FAB222";
+            ctx2.fill();
+        }
+        //openMouth();
+        var index = 1;
+        var i=0;
+        var x=parseInt(Math.random()*70+30);
+        // var y=parseInt(Math.random()*370+30);
+        smball(x,200);
+        var timer = setInterval(function(){
+            smball();
+            ctx.clearRect(0,0,500,400);
+            index++;
+            i+=15;
+            if(index%2==0){
+                openMouth();
+            }else{
+                closeMouth();
+            }
+            c3.style.left=i+"px";
+            var left=parseInt(c3.style.left);
+                c4.style.opacity=1;
+            if (left>(180+x)) {
+                c4.style.opacity=0;
+            }
+            if (c4.style.opacity==="0") {
+                ctx2.clearRect(0,0,800,400);
+                x1=parseInt(Math.random()*200+30);
+                x+=x1;
+                smball(x,200);
+                c4.style.opacity=1;
+            }
+            if(left>1200){
+                clearInterval(timer);
+            }
+        },25);
+    </script>
+    <script>
+        
+    </script>
+</body>
+</html>

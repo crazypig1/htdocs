@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script src="ajax.js"></script> 
+  <script>
+    function conn(callback){
+      ajax("get","05-1-conn.php","","text")
+      .then(text=>{
+        console.log(text);
+        callback();
+      });
+    }
+    function query(callback){
+      ajax("get","05-2-query.php","","text")
+      .then(text=>{
+        console.log(text);
+        callback();
+      });
+    }
+    function response(callback){
+      ajax("get","05-3-response.php","","text")
+      .then(text=>{
+        console.log(text);
+        callback();
+      });
+    }
+    function end(){
+      console.log("操作完成!");
+    }
+    conn(function(){
+      query(function(){
+        response(end)
+      });
+    });
+    
+  </script>
+ </body>
+</html>

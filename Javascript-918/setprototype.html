@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function Student(sname,sage){
+			this.sname=sname;
+			this.sage=sage;
+		}
+		var father={
+			bal:100000000,
+			car:"infiniti"
+		}
+		Student.prototype=father;
+		Student.prototype.intr=function(){
+			console.log("I'm"+this.sname+",I'm"+this.sage);
+
+		}
+		Student.prototype.className="大一二班";
+		var lilei=new Student("Li Lei",18);
+		var hmm=new Student("hanmeimei",19);
+		console.log(hmm);
+		console.log(lilei);
+		console.log(lilei.car); 
+	</script>
+</body>
+</html>

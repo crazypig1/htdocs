@@ -1,0 +1,57 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>事件处理</title>
+<meta charset="utf-8" />
+
+</head>
+<body>
+ 	<form>
+		姓名:<input name="username"/><br>
+		密码:<input type="password" name="pwd"/><br>
+    爱好:<input type="checkbox" name="favs" value="running"/>跑步
+          <input type="checkbox" name="favs" value="swimming"/>游泳
+          <input type="checkbox" name="favs" value="basketball"/>篮球
+          <br>
+		<input type="submit"/>
+	</form>
+  <script>
+    //?username=zhangdong&pwd=123456&favs=running&favs=swimming&favs=basketball
+function search2Obj(){
+  var obj={};
+  if(location.search){
+    var arr=location.search.slice(1).split("&");
+    //arr:[username=zhangdong,pwd=123456,...]
+    for(var str of arr){//遍历arr中每个子字符串
+      var subs=str.split("=");
+      var key=subs[0];
+      var value=subs[1];
+      //subs[username, zhangdong]
+      if(obj[key]===undefined)
+        obj[key]=value;
+         //.key=>["key"] key被写死为固定的字符串
+         //[key] key是动态变化的变量
+      else{
+        obj[key]=[].concat(obj[key],value);
+          //将属性的旧值和新值，拼到一个共同的数组中，然后将数组保存到新的属性中
+      }
+    }
+  }
+  return obj;
+}
+var obj=search2Obj();
+console.log(obj);
+    /*
+    {
+      username:zhangdong,
+      pwd:123456,
+      favs:[
+        running,
+        swimming,
+        basketball
+      ]
+    }
+    */
+  </script>
+</body>
+</html>

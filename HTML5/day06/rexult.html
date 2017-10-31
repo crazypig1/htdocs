@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>测试结果</h1>
+	<hr>
+	<p>总单词量<span id="spanTotal">**</span></p>
+	<p>正确数量<span id="spanCorrect">**</span></p>
+	<p>错误数量<span id="spanError">**</span></p>
+	<a href="save.html">录入新单词</a>
+	<a href="text.html">重新考试</a>
+	<script>	
+		spanTotal.innerHTML=sessionStorage["total"];
+		spanCorrect.innerHTML=sessionStorage["correct"];
+		spanError.innerHTML=sessionStorage["error"];
+	</script>
+</body>
+</html>

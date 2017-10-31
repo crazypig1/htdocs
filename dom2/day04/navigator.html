@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+    if(navigator.cookieEnabled)
+      document.write("已启用cookie！请妥善保存个人信息！<br>");
+    else
+      document.write("cookie已被禁用！无法记住密码！<br>");
+
+    function checkPlugin(pname){
+      navigator.plugins[pname]!==undefined?
+        document.write("已安装"+pname+"插件<br>"):
+        document.write("未安装"+pname+"插件,<a href='#'>点此安装</a><br>");
+    }
+    checkPlugin("Shockwave Flash");
+
+    document.write(navigator.userAgent+"<br>");
+var ua=navigator.userAgent;
+var browser="unknown",version=0;
+if(ua.indexOf("MSIE")!=-1) browser="MSIE";
+else if(ua.indexOf("Firefox")!=-1)        
+  browser="Firefox";
+else if(ua.indexOf("Chrome")!=-1) browser="Chrome";
+else if(ua.indexOf("Trident")!=-1){
+  browser="IE"; version=11;
+}
+document.write(browser+"<br>");
+if(version==0&&browser!="unknown"){
+  //找到浏览器名称在ua中的位置i
+  var i=ua.indexOf(browser);
+  //将i跳过浏览器名称的长度，再+1
+  i+=browser.length+1;
+  //截取ua中i位置开始的3个字符，转为浮点数
+  version=parseFloat(ua.slice(i,i+3));
+}
+document.write(version+"<br>");
+  </script> 
+ </body>
+</html>

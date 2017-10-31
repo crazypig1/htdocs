@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<script src="00-common.js"></script>
+	<script>
+		/**
+		 * loadUser() 负责向05-list-page.php异步发送请求并接收响应数据，显示在页面上
+		 * currentPage ：当前想看的页数
+		 */
+		function loadUser(currentPage){
+			//1、获取 xhr
+			var xhr = createXhr();
+			//2、创建请求
+			var url="05-list-page.php?currentPage="+currentPage;
+			xhr.open("get",url,true);
+			//3、设置回调
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4&&xhr.status==200){
+					var resText=xhr.responseText;
+					//1、将 resText 转换为 JS数组，保存在 list 变量中
+					//2、循环list数组，下标从0开始，到length-1结束,取出每一条数据，拼成<tr>和<td>,放在 <tbody>中
+					//3、取出 list 中的最后一条数据(分页数据)，转换成JS对象，拼a标记，放在 <tfoot>中
+				}
+			}
+			//4、发送请求
+			xhr.send(null);
+		}
+	</script>
+ </head>
+ <body onload="loadUser(5)">
+  <table>
+		<!-- 标题 -->
+		<thead></thead>
+		<!-- 主体内容 -->
+		<tbody id="show-body"></tbody>
+		<!-- 分页信息 -->
+		<tfoot id="show-page"></tfoot>`
+	</table>
+ </body>
+</html>

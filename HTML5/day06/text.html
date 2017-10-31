@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul{
+			list-style: none;
+		}
+	</style>
+</head>
+<body>
+	<h1>测试试卷</h1>
+	<hr>
+	<ul id="list">
+		<!-- <li><span>red</span><input type="text"></li> -->
+	</ul>
+	<input id="btSubmit" type="button" value="提交试卷">
+	<script>
+		// var list=
+		var li="";
+		for(var i=0;i<localStorage.length;i++){
+			var k=localStorage.key(i);
+			li+=`<li><span>${k}</span><input type="text"></li>`;
+		}
+		list.innerHTML=li;
+		btSubmit.onclick=function(){
+			var total=localStorage.length;
+			var correct=0;
+			var error=0;
+			var arr=document.querySelectorAll("#list input");
+			console.log(arr);
+			for(var i=0;i<total;i++){
+				var key=localStorage.key(i);
+				var right=localStorage.getItem(key);
+				var answer=arr[i].value;
+				if(answer==right){
+					correct++;
+				}else{
+					error++;
+				}
+			}
+			sessionStorage.setItem("total",total);
+			sessionStorage.setItem("correct",correct);
+			sessionStorage.setItem("error",error);
+			location.href="rexult.html";
+
+		}
+		
+	</script>
+</body>
+</html>

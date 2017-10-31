@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<style>
+		#container{
+			border:5px solid #000;
+			/*方案：2*/
+			/*float:left;*/
+			/*方案：3*/
+			/*overflow:auto;*/
+		}
+		#d1,#d2,#d3{
+			width:200px;
+			height:200px;
+		}
+		#d1{
+			background:red;
+			float:left;
+		}
+		#d2{
+			background:green;
+			float:left;
+		}
+		#d3{
+			background:blue;
+			float:left;
+		}
+	</style>
+ </head>
+ <body>
+  <div id="container">
+		<div id="d1"></div>
+		<div id="d2"></div>
+		<div id="d3"></div>
+		<div style="clear:both;"></div>
+	</div>
+		<div></div>
+		<div></div>
+	<div id="show-msg">显示一段文本内容</div>
+ </body>
+</html>

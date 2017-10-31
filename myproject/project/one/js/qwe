@@ -1,0 +1,20 @@
+http://lol.qq.com/act/a20170830festival/index.html?ADTAG=lolweb.index?ADTAG=media.free.s7.ad
+网站购买门票（.btn1） 预约直播(.btn2)top定位问题 在分辨率低的电脑上网页显示不正常 
+ .btn-1 {
+    width: 286px;
+    height: 61px;
+    display: block;
+    position: absolute;
+    top: 1100px;
+    left: 264px;
+    background-position: 0 -125px;
+    z-index: 11;
+    opacity: .8;
+    -webkit-animation: fade 1s 1s ease both;
+    -moz-animation: fade 1s 1s ease both;
+    font-size: 22px;
+    color: #683c05;
+    font-weight: bold;
+    line-height: 60px;
+    text-align: center;
+}

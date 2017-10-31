@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+   <h1>解决方案一:将耗时JS文件加载，位置最后body前面</h1>
+   <script>
+       var w5 = new Worker("10.js");
+       w5.onmessage = function(e){
+          p0.innerHTML = e.data;
+       }
+       console.log("UI线程执行后续代码");
+   </script>
+   <button>按钮11</button>
+   <button>按钮22</button>
+   <!--<script src="10.js"></script>-->
+   <h1>解决方案二:创建一个独立Worker线程运行耗时js文件</h1>
+   <p id="p0"></p>
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)https://s0.2mdn.net/6036712/1502764213968/160x600/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>GRE</title>
+	<style>
+		body{padding:0;margin:0;}
+		.pater{
+			width:158px;
+			height:598px;
+			overflow:hidden;
+			position:relative;
+			cursor:pointer;
+			border: 1px solid #663168;
+		}
+		.logo{
+			width: 100%;
+		    position: absolute;
+		    left: 0px;
+		    top: 12px;
+		    z-index: 111;
+		}
+		.but:hover .but2{
+			opacity:1;
+		}
+		.gre>div{
+			opacity:0;
+			-webkit-transition:all 0.5s;
+		}
+		.gre>div.in{
+			opacity:1;
+		}
+		.gre .a1{
+			position:absolute;
+			bottom:0;
+		}
+		.gre .a2{
+			position:absolute;
+			top:91px;
+			left:30px;
+			z-index: 10;
+		}
+		.gre .a3{
+			position:absolute;
+			top:0;
+			right:0;
+		}
+		.gre .a4{
+			position:absolute;
+			top:110px;
+			left:0;
+		}
+		.gre .b1{
+			position:absolute;
+			bottom:0;
+		}
+		.gre .b2{
+			position:absolute;
+			top:86px;
+			left:14px;
+			z-index: 10;
+		}
+		.gre .b3{
+			position:absolute;
+			top:0;
+			right: 0;
+		}
+		.gre .b4{
+			position:absolute;
+			top:95px;
+			left: 0;
+		}
+		
+		.gre .c1{
+			position:absolute;
+			bottom:0;
+		}
+		.gre .c2{
+			position:absolute;
+			top: 136px;
+		    left:24px;
+		}
+		.gre .c3{
+			position:absolute;
+			top:290px;
+		    left:26px;
+		}
+		
+		.gre .d1{
+			position:absolute;
+			bottom:0;
+		}
+		.gre .d2{
+			position:absolute;
+			top:160px;
+			left:29px;
+		}
+		
+		.gre .e1{
+			position:absolute;
+			bottom:0;
+		}
+		.gre .e2{
+			position:absolute;
+			top:121px;
+			left:30px;
+		}
+		.gre .f1{
+			position:absolute;
+			bottom:0;
+		}
+		.gre .f2{
+			position:absolute;
+			top:85px;
+			left:23px;
+			z-index: 10;
+		}
+		.gre .f3{
+			position:absolute;
+			bottom:294px;
+			left:17px;
+			z-index: 10;
+		}
+		.gre .f4{
+			position:absolute;
+			top: 0;
+			right: 0;
+		}
+		.gre .f5{
+			position:absolute;
+			top: 0;
+			left: 0;
+		}
+		.gre .f6{
+			position:absolute;
+			bottom: 0;
+			right: 0;
+		}
+		.gre .but{
+			position:absolute;
+			bottom:32px;  
+			right:32px;
+			z-index: 1;
+		}
+		.gre .but2{
+			opacity:0;
+			-webkit-transition:all 0.5s;
+			-ms-transition:all 0.5s;
+			-o-transition:all 0.5s;
+			-moz-transition:all 0.5s;
+			transition:all 0.5s;
+		}
+		.pater:hover .but2{
+			opacity:1;
+		}
+		.flash>div .flash1{
+			opacity: 0;
+			-webkit-transition:all 1s;
+			-ms-transition:all 1s;
+			-o-transition:all 1s;
+			-moz-transition:all 1s;
+			transition:all 1s;
+		}
+		.flash>div .flash2{
+			/*-webkit-transform:scale(0.5,0.5);
+			-ms-transform:scale(0.5,0.5);
+			-o-transform:scale(0.5,0.5);
+			-moz-transform:scale(0.5,0.5);
+			transform:scale(0.5,0.5);*/
+			-webkit-transition:all 0.8s 0.3s;
+			-ms-transition:all 0.8s 0.3s;
+			-o-transition:all 0.8s 0.3s;
+			-moz-transition:all 0.8s 0.3s;
+			transition:all 0.8s 0.3s;
+			opacity:0;
+		}
+		.flash>div .flash3{
+			-webkit-transform:translate(0px,-50px);
+			-ms-transform:translate(0px,-50px);
+			-o-transform:translate(0px,-50px);
+			-moz-transform:translate(0px,-50px);
+			transform:translate(0px,-50px);
+			-webkit-transition:all 0.8s 0.3s;
+			-ms-transition:all 0.8s 0.3s;
+			-o-transition:all 0.8s 0.3s;
+			-moz-transition:all 0.8s 0.3s;
+			transition:all 0.8s 0.3s;
+			opacity:0;
+		}
+		.flash>div .flash4{
+			-webkit-transform:translate(0,50px);
+			-ms-transform:translate(0,50px);
+			-o-transform:translate(0,50px);
+			-moz-transform:translate(0,50px);
+			transform:translate(0,50px);
+			-webkit-transition:all 0.8s 0.3s;
+			-ms-transition:all 0.8s 0.3s;
+			-o-transition:all 0.8s 0.3s;
+			-moz-transition:all 0.8s 0.3s;
+			transition:all 0.8s 0.3s;
+			opacity:0;
+		}
+		
+		
+		
+		
+
+		.flash>div.in .flash1{
+			opacity: 1;
+		}
+		.flash>div.in .flash2{
+			/*-webkit-transform:scale(1,1);
+			-ms-transform:scale(1,1);
+			-o-transform:scale(1,1);
+			-moz-transform:scale(1,1);
+			transform:scale(1,1);*/
+			opacity:1;
+		}
+		.flash>div.in .flash3{
+			-webkit-transform:translate(0,0);
+			-ms-transform:translate(0,0);
+			-o-transform:translate(0,0);
+			-moz-transform:translate(0,0);
+			transform:translate(0,0);
+			opacity:1;
+		}
+		.flash>div.in .flash4{
+			-webkit-transform:translate(0,0);
+			-ms-transform:translate(0,0);
+			-o-transform:translate(0,0);
+			-moz-transform:translate(0,0);
+			transform:translate(0,0);
+			opacity:1;
+		}
+		
+	</style>
+<script type="text/javascript">
+    
+      (function() {
+        var relegateNavigation = '';
+        var handleClickTagMessage = function(e) {
+          try {
+            var eventData = JSON.parse(e.data);
+          } catch (err) {
+            return;
+          }
+          if (eventData.isInitClickTag) {
+            if (eventData.clickTags) {
+              for (var i = 0; i < eventData.clickTags.length; i++) {
+                var clkTag = eventData.clickTags[i];
+                window[clkTag.name] = clkTag.url;
+              }
+            } else if (eventData.clickTag) {
+              window.clickTag = eventData.clickTag;
+            }
+            relegateNavigation = eventData.relegateNavigation;
+          }
+        };
+
+        if (open.call) {
+          window.open = function(open) {
+            return function(url, name, features) {
+              if (relegateNavigation === 'parent') {
+                var message = {'clickTag': url, 'isPostClickTag': true};
+                parent.postMessage(JSON.stringify(message), '*');
+              } else {
+                var args = [url, name];
+                if (features) {
+                  args.push(features);
+                }
+                open.apply(window, args);
+              }
+            };
+          }(window.open);
+        }
+
+        if (window.addEventListener) {
+          window.addEventListener(
+              'message', handleClickTagMessage, false);
+        } else {
+          window.attachEvent('onmessage', handleClickTagMessage);
+        }
+      })();
+    
+  </script></head>
+<body>
+	<div class="pater" onclick="ClickCommand()">
+		
+		<div class="gre flash" id="gre">
+			<div class="">
+				<img src="./p1-bg.jpg" class="a1 flash1">
+				<img src="./p1-1.png" class="a2 flash2">
+				<img src="./p1-2.png" class="a3 flash3">
+				<img src="./p1-3.png" class="a4 flash4">
+			</div>
+			<div class="">
+				<img src="./p2-bg.jpg" class="b1 flash1">
+				<img src="./p2-1.png" class="b2 flash2">
+				<img src="./p2-2.png" class="b3 flash3">
+				<img src="./p2-3.png" class="b4 flash4">
+			</div>
+			<div class="">
+				<img src="./p3-bg.jpg" class="c1 flash1">
+				<img src="./p3-1.png" class="c2 flash2">
+				<img src="./p3-2.png" class="c3 flash2">
+			</div>
+			<div class="">
+				<img src="./p4-bg.jpg" class="d1 flash1">
+				<img src="./p4-1.png" class="d2 flash2">
+			</div>
+			<div class="">
+				<img src="./p5-bg.jpg" class="e1 flash1">
+				<img src="./p5-1.png" class="e2 flash2">
+			</div>
+			<div class="in">
+				<img src="./p6-bg.jpg" class="f1 flash1">
+				<img src="./p6-1.png" class="f2 flash1">
+				<img src="./p6-2.png" class="f3 flash1">
+				<img src="./p6-3.png" class="f4 flash3">
+				<img src="./p6-4.png" class="f5 flash4">
+				<img src="./p6-5.png" class="f6 flash1">
+				<img src="./but.png" class="but flash1">
+				<img src="./but2.png" class="but but2">
+			</div>
+		</div>
+		<div class="logo">
+			<img src="./logo.png">
+		</div>
+	</div>
+    <script>
+    var clickTag = "https://www.ets.org/gre/revised_general/register"
+    function ClickCommand(){
+    	window.open(clickTag)
+    }
+    var inde = -1;
+   	var div = document.getElementById("gre");
+   	var lis = div.getElementsByTagName('div');
+   	var attrtime = [2,2.3,2.8,2.6,2.6,2.7]
+    var aa = 0;
+
+  
+     	function autoplay(){
+	  		inde++;
+			if(inde>5){
+				inde = -1 ;
+				aa++;
+			}
+			if(aa==2){
+				return;
+			}
+	 	 	for(var i=0;i<=5;i++){
+		  		lis[i].setAttribute("class","");
+		  		if(i==inde){
+		  			lis[i].setAttribute("class","in");
+		  		}
+			}
+			setTimeout(function(){
+				autoplay();
+			},attrtime[inde]*1000)
+   		}
+		setTimeout(function(){
+			autoplay();
+		},10)
+    
+    
+    
+   </script>
+
+
+</body></html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<h1>音乐博泛起</h1>
+	<video id="v3" src="../img2/bg.mp3" width="0" autoplay>
+			<!-- <source src="birds.mp4"> -->
+			<!-- <source src="birds.ogg"> -->
+			<!-- <source src="birds.webm"> -->
+			<!-- 您的浏览器太垃圾了 -->
+	</video>
+	<canvas id="c3"></canvas>
+	<script>
+		var c3=document.getElementById('c3');
+		var c=c3.getContext("2d");
+		var pg=0;
+		// c3.width=p1.width;
+		// c3.height=p1.height;
+		var p1 = new Image();
+		var p2 = new Image();
+		var p3 = new Image();
+		var p32= new Image();
+		var p4 = new Image();
+		var p5 = new Image();
+		var p6 = new Image();
+		p1.src="../img2/bg.jpg";
+		p2.src="../img2/disc.png";
+		p3.src="../img2/pause.png";
+		p4.src="../img2/play.png";
+		p5.src="../img2/qian.png";
+		p6.src="../img2/hou.png";
+
+		p1.onload=function(){
+			pg+=20;
+			if(pg==100){
+				startDraw();
+			}
+		}
+		p2.onload=function(){
+			pg+=20;
+			if(pg==100){
+				startDraw();
+			}
+		}
+		p3.onload=function(){
+			pg+=20;
+			if(pg==100){
+				startDraw();
+			}
+		}
+		p4.onload=function(){
+			pg+=20;
+			if(pg==100){
+				startDraw();
+			}
+		}
+		p5.onload=function(){
+			pg+=20;
+			if(pg==100){
+				startDraw();
+			}
+		}
+		p6.onload=function(){
+			pg+=20;
+			if(pg==100){
+				startDraw();
+			}
+		}
+		function startDraw(){
+			var w=p1.width;
+			var h=p1.height;
+			c3.width=w;
+			c3.height=h;
+			var w1=p2.width;
+			var h1=p2.height;
+			c.drawImage(p1,0,0);
+			c.beginPath();
+			c.arc(w/2,h/2-75,100,0,2*Math.PI);
+			c.fillStyle="black";
+			c.fill();
+			c.beginPath();
+			c.lineWidth=2;
+			c.arc(w/2,h/2-75,101,0,2*Math.PI);
+			c.strokeStyle="#B1A7A7";
+			c.stroke();
+			c.beginPath();
+			c.lineWidth=2;
+			c.strokeStyle="#B1A7A7";
+			c.arc(w/2,h/2-75,77,0,2*Math.PI);
+			c.stroke();
+			var deg =4;
+            var timer=setInterval(function(){
+            c.save();
+            c.translate(200,175);
+            c.rotate(deg * Math.PI/180);
+            c.drawImage(p2,-75,-75,150,150);
+            deg+=10;
+            c.restore();
+            },500)
+				c.drawImage(p3,150,350,100,100);
+
+            if (!v3.paused){
+				c.drawImage(p3,150,350,100,100);
+			}else{
+				c.drawImage(p4,150,350,100,100);
+			}
+			c.drawImage(p5,250,350,100,100);
+			c.drawImage(p6,50,350,100,100);
+			c3.onclick=function(){
+			if (v3.paused) {
+					v3.play();
+					startDraw();
+				}else{
+					v3.pause();
+					clearInterval(timer);
+					startDraw();
+					
+				}
+		}
+		}
+		// timer();
+
+			
+		
+	</script>
+		}
+</body>
+</html>

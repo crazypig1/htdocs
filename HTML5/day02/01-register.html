@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<script src="00-common.js"></script>
+	<script>
+		/**
+		 * 1、验证用户密码 和 确认密码是否一致，并给出提示
+		 */
+		function checkCpwd(){
+			//1、获取用户密码 和 确认密码，分别保存在俩变量中
+			var upwd=$("upwd").value;
+			var cpwd=$("cpwd").value;
+			//2、判断两个变量的值是否相等，并给出提示，将提示内容显示在 cpwd-show 中
+			if(upwd == cpwd){
+				$("cpwd-show").innerHTML="通过";
+			}else{
+				$("cpwd-show").innerHTML="两次输入的密码不一致";
+			}
+		}
+		
+		/**
+		 * 检查登录名称是否为空以及是否存在
+		 */
+		function check_uname(){
+			//1、获取 uname 的值
+			var uname=$("uname").value;
+			//2、验证 uname 是否为空，如果为空，则给出提示，否则继续验证uname是否存在(AJAX)
+			if(uname == ""){
+				$("uname-show").innerHTML = "登录名称不能为空!";
+			}else{
+				//继续验证uname是否存在(AJAX,使用POST请求)
+				//1、获取 xhr
+				var xhr = createXhr();
+				//2、创建请求
+				xhr.open("post","02-checkuname.php",true);
+				//3、设置回调
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState==4&&xhr.status==200){
+						var resText=xhr.responseText;
+						$("uname-show").innerHTML=resText;
+					}
+				}
+				//4、更改请求消息头
+				xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+				//5、发送请求(以及请求参数)
+				xhr.send("uname="+uname);
+			}
+		}
+	</script>
+ </head>
+ <body>
+  <form action="01-register.php" method="post">
+		<p>
+			登录名称：
+			<input type="text" name="uname" id="uname" onblur="check_uname()">
+			<span id="uname-show"></span>
+		</p>
+		<p>
+			登录密码：
+			<input type="password" name="upwd" id="upwd">
+		</p>
+		<p>
+			重复密码：
+			<input type="password" id="cpwd" onblur="checkCpwd()">
+			<span id="cpwd-show"></span>
+		</p>
+		<p>
+			电子邮件：
+			<input type="email" name="email">
+		</p>
+		<p>
+			移动电话：
+			<input type="text" name="phone">
+		</p>
+		<p>
+			用户姓名：
+			<input type="text" name="user_name">
+		</p>
+		<p>
+			用户性别：
+			<select name="gender">
+				<option value="0">男</option>
+				<option value="1">女</option>
+			</select>
+		</p>
+		<p>
+			<input type="submit" value="注册">
+		</p>
+	</form>
+ </body>
+</html>

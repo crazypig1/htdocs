@@ -1,0 +1,44 @@
+什么json
+JavaScript object Notation
+1、JS 对象表示法，即以JS对象的方式来表现出来的字符串
+2、JS对象
+	var fbb=[];
+function asd(){	
+	fbb={
+		asd:asdf;
+		yuwen:321;
+		yingyu:321;
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

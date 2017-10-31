@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<script src="00-common.js"></script>
+	<script>
+		/**
+		 * 根据 ID 删除指定的 用户信息
+		 */
+		function deleteUser(uid){
+			
+			//使用 AJAX的方式进行删除
+			//1、获取xhr
+			var xhr = createXhr();
+			//2、创建请求
+			var url = "03-delete-user.php?uid="+uid;
+			xhr.open("get",url,true);
+			//3、设置回调
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4&&xhr.status==200){
+					var resText = xhr.responseText;
+
+					//版本1：直接接收提示信息并执行
+					//eval(resText);
+					//删除完成后，再调用一次 loadUser()
+					//loadUser();
+
+					//版本2：接收服务器端响应回来的自定义状态(1:删除成功,0:删除失败)
+					if(resText == "1"){
+						alert("删除成功!");
+						loadUser();
+					}else{
+						alert("删除失败!");
+					}
+				}
+			}
+			//4、发送请求
+			xhr.send(null);
+		}
+
+		function loadUser(){
+			//1、获取 xhr
+			var xhr = createXhr();
+			//2、创建请求
+			xhr.open("get","00-homework.php",true);
+			//3、设置回调
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4&&xhr.status==200){
+					//1、接收响应数据并转换为JS数组
+					var resText = xhr.responseText;
+					var users=JSON.parse(resText);
+					//2、循环遍历数组，拼<tr> ... ...
+					var html="";
+					for(var i=0;i<users.length;i++){
+						var user = users[i];
+						html += "<tr>";
+							html += "<td>"+user.uname+"</td>";
+							html += "<td>"+user.email+"</td>";
+							html += "<td>"+user.user_name+"</td>";
+							html += "<td>";
+								html += "<a href='javascript:deleteUser("+user.uid+")'>删除</a>";
+
+								html += "<a href='04-update-user.php?uid="+user.uid+"'>修改</a>";
+
+							html += "</td>";
+						html += "</tr>";
+					}
+					console.log(html);
+					$("body").innerHTML = html;
+				}
+			}
+			//4、发送请求
+			xhr.send(null);
+		}
+	</script>
+ </head>
+ <body onload="loadUser()">
+  <table width="500" border="1">
+		<thead>
+			<tr>
+				<th>用户名</th>
+				<th>邮件</th>
+				<th>姓名</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody id="body"></tbody>
+	</table>
+ </body>
+</html>

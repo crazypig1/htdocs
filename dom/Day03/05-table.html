@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<style>
+		/*
+			1、创建一个 400 * 400 的表格，4行4列
+			2、创建每个单元格的尺寸为 100*100
+			3、设置表格 和 单元格的边框 为 1
+			px solid #000
+			4、尝试着为每个td增加上外边距 10px
+		*/
+		#tbl{
+			width:400px;
+			height:400px;
+			border:1px solid #000;
+			/*边框合并*/
+			border-collapse:collapse;
+			/*边框边距*/
+			/*border-spacing:5px 10px;*/
+			/*标题位置*/
+			caption-side:bottom;
+			/*将表格的布局方式更改为固定表格布局*/
+			table-layout:fixed;
+		}
+		#tbl td{
+			width:100px;
+			height:100px;
+			border:1px solid #000;
+		}
+	</style>
+ </head>
+ <body>
+  <table id="tbl">
+		<caption>表-1</caption>
+		<tr>
+			<td>SunwukongSunwukongSunwukong</td>
+			<td>猪八戒</td>
+			<td>沙悟净</td>
+			<td>唐三藏</td>
+		</tr>
+		<tr>
+			<td>刘备</td>
+			<td>关羽</td>
+			<td>张飞</td>
+			<td>貂蝉</td>
+		</tr>
+		<tr>
+			<td>西门庆</td>
+			<td>潘金莲</td>
+			<td>宋江</td>
+			<td>阎婆惜</td>
+		</tr>
+		<tr>
+			<td>贾宝玉</td>
+			<td>林黛玉</td>
+			<td>刘姥姥</td>
+			<td>王熙凤</td>
+		</tr>
+	</table>
+ </body>
+</html>

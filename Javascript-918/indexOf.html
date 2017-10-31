@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// if (typeof Array.prototype.indexOf !="function") {
+		// 	Array.prototype.indexOf=function(elem,fromi){
+		// 		document.write("调用自定义indexOf...<br>")
+		// 		fromi=fromi||0;
+		// 		var arr=this;
+		// 		for (var i = 0; i < arr.length; i++) {
+		// 			if(arr[i]===elem)
+		// 				return i;
+		// 		}
+		// 		return -1;
+		// 	}
+		// }
+		// var nums=[1,2,3,4,3,2,1];
+		// document.write(
+		// 	nums.indexOf(3)+"<br>"+
+		// 	nums.indexOf(3,3)+"<br>"
+		// 	);
+		// if (typeof String.prototype.trim!="function") {
+		// 	string.prototype.trim=function(){
+		// 		return this.replace(/^\s|$\s/,"");
+		// 	}
+		// }
+		// var str="   asdf    sadf   ";
+		// document.write(str.trim());
+		function Student(sname,sage){
+			this.sname=sname;
+			this.sage=sage;
+		}
+		Student.prototype={
+			toString(){
+			var arr=[];
+			var obj=this;
+			for(var key in obj){
+				if (typeof obj[key]!=="function") {
+					arr.push(key+":"+obj[key]);
+				}
+			}
+			return "{"+arr.join(',')+"}";
+		}
+	};
+		var lilei=new Student("Lilei",11);
+		console.log(lilei.toString());
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

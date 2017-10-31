@@ -1,0 +1,19 @@
+
+如何调试php程序
+
+错误集锦一:
+表示:无论用户名和密码正确是否
+结果都是错误.
+
+找错误1:从下向上找错误(mysql->php)
+1:先查询数据库数据是否正确!
+  SELECT uid,uname,upwd FROM xz_user;
+正确:e10adc3949ba59abbe56e057f20f883e
+解决:
+  UPDATE xz_user SET upwd=md5(upwd);
+
+
+找错误2:
+问题:mysqli_result, boolean given
+原因:SQL语句
+解决:输出  echo $sql;

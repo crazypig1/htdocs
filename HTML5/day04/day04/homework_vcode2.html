@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{text-align: center}
+        /*canvas{background: #ddd}*/
+	</style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<script>
+		var w = 120;
+       	var h = 30;
+       	canvas.width=w;
+       	canvas.height=h;
+	    var ctx = canvas.getContext("2d");
+	 	//随机数
+	    function rn(min,max){
+	    	var n=Math.random()*(max-min)+min;
+	    	return Math.floor(n);
+	    }
+	    //随机颜色
+	    function rc(min,max){
+           var r = rn(min,max);
+           var g = rn(min,max);
+           var b = rn(min,max);
+           return  `rgb(${r},${g},${b})`;
+       }
+       canvas.style.background=rc(180,230);
+       var rtext="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+       
+       for(var i=0;i<4;i++){
+       	var c = rtext[rn(0,rtext.length)];
+        var fs=rn(18,20);
+        var deg=rn(-40,40);
+        console.log(deg);
+        ctx.font=fs+"px SimHei";
+        ctx.fillStyle =rc(80,180);
+        ctx.textBaseline="top";
+        ctx.save();
+        ctx.translate(30*i+20,0);
+        ctx.rotate(deg*Math.PI/180);
+        ctx.fillText(c,0,10);
+        // ctx.clearRect
+        ctx.restore();
+       }
+
+       // ctx.font = "30px SimHei";
+       // ctx.fillStyle = rc(80,180);
+       // ctx.textBaseline = "top";
+       // deg=rn(0,360) * Math.PI/180;
+       // ctx.rotate(deg);
+       // ctx.fillText(str,0,0);
+       //7:绘制6条干扰线
+       for(var i=0;i<3;i++){
+           ctx.strokeStyle = rc(0,255);
+           ctx.beginPath();
+           ctx.moveTo(rn(0,w),rn(0,h));
+           ctx.lineTo(rn(0,w),rn(0,h));
+           ctx.stroke();
+       }
+       //8:绘制50个干扰点 9:46--9:49
+       for(var i=0;i<50;i++){
+           ctx.fillStyle = rc(0,255);
+           ctx.beginPath();
+           ctx.arc(rn(0,w),rn(0,h),1,0,2*Math.PI);
+           ctx.fill();
+       }
+
+	</script>
+</body>
+</html>

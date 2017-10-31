@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+ </head>
+ <body>
+	<h1>操作元素的内容和值</h1>
+	<form action="">
+		用户名:<input name="uname">
+					<span id="uname-msg"></span><br>
+		密码:<input type="password" name="upwd">
+					<span id="upwd-msg"></span><br>
+		<input type="submit" value="提交注册信息">
+	</form>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+    //正确时，使用图片:"<img src='img/ok.png'>"
+    //姓名错误时: "<img src='img/err.png'>用户名必须介于3~9位之间!"
+    //密码错误时: "<img src='img/err.png'>密码必须介于6~8位之间!"
+    //阻止默认行为: e.preventDefault();
+    //表单提交: $(form).submit();
+    $("form [name='uname']").blur(function(){
+    	vali($(this),3,9,"用户名必须介于3~9位之间!")
+    });
+    $("form [name='upwd']").blur(function(){
+    	vali($(this),4,8,"密码必须介于6~8位之间!")
+    });
+    function vali($this,min,max,msg){
+    	var $val=$this.val();
+    	var $span=$this.next();
+    	var $bl=$val.length>=min&&$val.length<=max;
+  		$span.html($bl?"<img src='img/ok.png'>":"<img src='img/err.png'>"+msg);
+  		return $bl?true:false;
+    }
+    $("form").submit(function(e){
+    	var $this=$(this);
+    	var $name=$this.find("[name='uname']");
+    	var $upwd=$this.find("[name='upwd']");
+    	var $rname=vali($name,3,9,"用户名必须介于3~9位之间!");
+    	var $rpwd=vali($upwd,6,8,"密码必须介于6~8位之间!");
+    	if (!($rname&&$rpwd)) {
+    		e.preventDefault();
+    	}
+    })
+
+
+
+
+
+
+
+
+
+
+	</script>
+ </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	function maopao(){
+		var arr=[2,54,6,89,55,3];
+		
+		for(i=1;i<arr.length;i++){
+			var arr2=[];
+			for(j=0;j<arr.length-i;j++){
+				if(arr[j]>arr[j+1]){
+					arr2=arr[j];
+					arr[j]=arr[j+1];
+					arr[j+1]=arr2;
+				}
+			}
+		}
+		console.log(arr);
+
+	}
+</script>
+<input type="button" onclick="maopao()">
+</body>
+</html>

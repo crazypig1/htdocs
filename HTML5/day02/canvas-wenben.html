@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		body{text-align:center;}
+		#c2{background: #ccc;}
+	</style>
+</head>
+<body>
+	<canvas id="c2" width="500px" height="400px"></canvas>
+	<script type="text/javascript">
+		var c2=document.getElementById("c2");
+		var ctx=c2.getContext("2d");
+		ctx.textBaseline="top";
+		var str="阅微草堂";
+		ctx.fillStyle="green";
+		ctx.font="29px sans-serif";
+		// var obj=ctx.measureText(str);
+		// var w=obj.width;
+		ctx.fillText(str,0,0);
+		// ctx.fillText(str,500-w,0);
+		// ctx.fillText(str,0,360);
+		// ctx.fillText(str,500-w,360);
+		// ctx.fillText(str,500/2-w/2,400/2-40/2);
+		var x=0;
+		var y=0;
+		var xDirectio=1;
+		var yDirectio=1;
+		var obj=ctx.measureText(str);
+		var w=obj.width;
+		console.log(x,y,xDirectio,yDirectio);
+		var timer=setInterval(function(){
+			ctx.clearRect(0,0,500,400);
+			x+=6*xDirectio;
+			x>500-w && xDirectio=-1 || x<=0&&xDirectio=1;
+			// y+=6*yDirectio;
+			ctx.fillText(str,x,0);
+		},30)
+	</script>
+</body>
+</html>

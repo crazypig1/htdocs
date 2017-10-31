@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .ok{color:green}
+    .err{color:red}
+    img{cursor:pointer;}
+  </style>
+ </head>
+ <body>
+    验证码:<input id="txtCode"/>
+    <img id="imgCode" src="../data/01_code.php" title="看不清，点击换一张" onclick="updetaimg()" />
+    <br>
+    <span id="msgCode"></span>
+    <script src="../ajax.js"></script>
+    <script>
+      txtCode.onkeyup=function(){
+        if(txtCode.value!=""){
+          ajax(
+            "get",
+            "../data/01_chk_code.php?code="
+              +txtCode.value,
+            "",
+            "text"
+          ).then(function(data){
+            if(data=="true"){
+              msgCode.innerHTML="验证码正确";
+              msgCode.className="ok";
+            }else{
+              msgCode.innerHTML="验证码错误";
+              msgCode.className="err";
+            }
+          })
+        }else
+          msgCode.innerHTML="";
+      }
+      function updateimg(){
+      	var img=document.getElementById('imgCode');
+      	img.setAttribute("src","../data/01_code.php");
+      }
+    </script> 
+ </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #welcome{
+            text-align: right;
+        }
+
+    </style>
+</head>
+<body>
+   <h1>首页</h1>
+   <div id="welcome">
+       <a href="052_login.html">请登录 </a>
+   </div>
+   <script>
+      //判断sessionStorage是否储存了用户名
+      //
+      var n = sessionStorage.getItem("uname");
+      if(n){
+          welcome.innerHTML = `
+             欢迎回来 ：${n} <a href="053_logout.html">退出登录</a>
+          `;
+      }
+   </script>
+</body>
+</html>

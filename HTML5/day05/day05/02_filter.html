@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{text-align: center}
+        svg{background: #ddd}
+    </style>
+</head>
+<body>
+    <h1>SVG图形,使用渐变对象</h1>
+    <svg id="s2" width="500" height="400">
+     <!--滤镜属于一种特效对象 -->
+      <defs>
+         <filter id="f2">
+             <feGaussianBlur  stdDeviation="2"></feGaussianBlur>
+         </filter>
+          <filter id="f3">
+              <feGaussianBlur  stdDeviation="3"></feGaussianBlur>
+          </filter>
+      </defs>
+      <text font-size="70" x="0" y="100">达内科技</text>
+      <text font-size="70" x="0" y="200" filter="url(#f2)">达内科技</text>
+      <text font-size="70" x="0" y="300" filter="url(#f3)">达内科技</text>
+
+    </svg>
+</body>
+</html>

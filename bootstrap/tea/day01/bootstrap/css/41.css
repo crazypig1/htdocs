@@ -1,0 +1,18 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin:0;
+}
+/*pc设备*/
+@media screen and (min-width: 992px){
+    .box{background: red;color:#fff;font-size: 14px}
+}
+/*pad设备*/
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .box{background: green;color: #fff;font-size: 12px}
+}
+/*phone设备*/
+@media screen and (max-width: 767px){
+    .box{background: blue;color:#fff;font-size: 10px}
+}

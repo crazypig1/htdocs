@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.min.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+  <style>
+    div{border:1px solid #000}
+  </style>
+</head>
+<body>
+<div class="container">
+     <h1>全局CSS样式-栅格 适用性</h1>
+     <h3>xs 列适用性</h3>
+     <div class="row">
+        <div class="col-xs-6">XS-6</div>
+     </div>
+     <h3>sm 列适用性</h3>
+     <div class="row">
+        <div class="col-sm-6">sm-6</div>
+     </div>
+     <h3>md 列适用性</h3>
+     <div class="row">
+      <div class="col-md-6">md-6</div>
+     </div>
+     <h3>lg 列适用性</h3>
+     <div class="row">
+        <div class="col-lg-6">lg6</div>
+     </div>
+    <h1>一个列可以指定在不同屏幕下不同的宽度占比</h1>
+    <div class="row">
+        <div class="col-xs-12 col-sm-9 col-md-6 col-lg-3">响应列1</div>
+        <!--以下写法错误&ndash;&gt;改->col-md-6-->
+        <!--<div class="col-md-6 col-lg-6">响应列2</div>-->
+        <div class="col-xs-12 col-sm-9">响应列3</div>
+    </div>
+    <h3>列隐藏问题</h3>
+    <div class="row">
+        <div class="col-xs-6 hidden-sm">XS-6</div>
+    </div>
+    <h1>如何创建一个占比1/24的列</h1>
+    <div class="row">
+       <div class="col-xs-1">
+          <div class="row">
+             <div class="col-xs-6" style="border:1px solid red">1MD</div>
+          </div>
+       </div>
+    </div>
+</div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/bootlint.js"></script>
+<script>
+  bootlint.showLintReportForCurrentDocument([]);
+</script>
+</body>
+</html>

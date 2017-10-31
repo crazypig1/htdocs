@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>退出 </h1>
+   <p>您己退出登录!3s后将自动跳转首页</p>
+   <script>
+    //清除sessionStorage
+    sessionStorage.removeItem("uname");
+    setTimeout(function(){
+        location.href = "index.html";
+    },3000);
+   </script>
+</body>
+</html>

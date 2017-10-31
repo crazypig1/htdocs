@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{text-align: center}
+        svg{background: #FFF}
+	</style>
+</head>
+<body>
+	<h1>杨程回家图</h1>
+	<svg id="s3" width="500" height="400">
+	<polyline points="130,150 270,150 200,80 130,150" fill="transparent" stroke="#000"></polyline>
+	<polyline points="150,150 150,225 250,225 250,150" fill="transparent" stroke="#000"></polyline>
+	<polyline points="180,225 180,185" fill="transparent" stroke="#000"></polyline>
+	<polyline points="220,225 220,185" fill="transparent" stroke="#000"></polyline>
+    <circle r="20" cx="200" cy="185" fill="#ddd" stroke="#000"></circle>
+    <polyline points="218.5,224 218.5,185 181.5,185 181.5,224" fill="#ddd" stroke="transparent"></polyline>
+    <polyline points="150,130 150,100 165,100 165,115" fill="transparent" stroke="#000"></polyline>
+    <circle r="7" cx="150" cy="90" fill="transparent" stroke="#000"></circle>
+    <circle r="5" cx="135" cy="80" fill="transparent" stroke="#000"></circle>
+    <circle r="2" cx="215" cy="200" fill="transparent" stroke="#000"></circle>
+    <image id="img" xlink:href="../img2/zhu.jpg" width="50" height="50" x="350" y="350"></image>
+    <image id="img" xlink:href="../img2/shu.jpg" width="175" height="500" x="280" y="-130"></image>
+    <image id="img" xlink:href="../img2/sun.jpg" width="125" height="280" x="0" y="-100"></image>
+    <script>
+
+    	var cc = document.createElementNS("http://www.w3.org/2000/svg",
+                   "circle");
+    	var timer=setInterval(function(){
+    		var img=document.getElementById('img');
+    		var x=img.getAttribute("x");
+    		var y=img.getAttribute("y");
+    		y--;
+    		x--;
+    		img.setAttribute("y",y);
+    		img.setAttribute("x",x);
+    		if (y<225) {
+    			clearInterval(timer);
+
+    		}
+    	},20)
+    </script>
+</body>
+</html>

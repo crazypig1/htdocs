@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+   <h1>拖动的源对象可能触发事件</h1>
+   <img src="img/p3.png" id="p3"/>
+   <script>
+    //源对象开始拖动 1  15:56~15:58
+    p3.ondragstart = function(){console.log("drag start")}
+    //源对象拖动中   n
+    p3.ondrag = function(){console.log("drag")}
+    //源对象拖动结束 1
+   p3.ondragend = function(){console.log("drag end")}
+   </script>
+</body>
+</html>

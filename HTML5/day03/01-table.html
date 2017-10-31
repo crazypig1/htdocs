@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript">
+		
+		function loadUser(){
+			var xhr=createXhr();
+			xhr.open("get","01-table.php",true);
+			
+			xhr.onreadystatechange=function(){
+				if (xhr.readyState==4&&xhr.status==200) {
+					var resText=xhr.responseText;
+					var users=JSON.parse(resText);
+					var tbody="";
+					for (var i=0;i<users.length;i++) {
+						// tbody += "<tr>";
+						// for(var j in users[i]){
+						// 	tbody += "<td>"+users[i][j]+"</td>";
+						// }
+						// tbody += "<td><button></button><button></button></td>"
+					var user=users[i];
+					 tbody+="<tr>";
+					 tbody+="<td>"+user.uname+"</td>";
+					 tbody+="<td>"+user.email+"</td>";
+					 tbody+="<td>"+user.user_name+"</td>";
+					 tbody+="<td><button>asd</button><button>asd</button></td>";
+					}
+					$("tbody").innerHTML=tbody;
+				}
+			}
+				xhr.send(null);
+		}
+	</script>
+</head>
+<body onload="loadUser()">
+<table width="500px" border="1" cellspacing="0">
+	<thead>
+	<tr>
+		<td>用户名</td>
+		<td>邮箱</td>
+		<td>姓名</td>
+		<td>操作</td>
+	</tr>
+	</thead>
+	<tbody id="tbody">
+	
+	</tbody>
+</table>
+
+</body>
+</html>

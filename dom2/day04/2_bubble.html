@@ -1,0 +1,35 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>事件处理</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css/2.css"/>
+	</head>
+	<body>
+		<div id="d1">
+			<div id="d2">
+				<div id="d3">
+				</div>
+			</div>
+		</div>
+    <script>
+			d1.onclick=function(e){
+        console.log("d1喊: 疼!");
+        e.stopPropagation();
+      }
+      /*自动创建event
+                 ↓ 自动作为处理函数第一个参数传入
+        function(e){
+          console.log("d1喊: 疼!");
+        }*/
+			d2.onclick=function(e){
+        console.log("d2喊: 疼!");
+        e.stopPropagation();
+      }
+			d3.onclick=function(e){
+        console.log("d3喊: 疼!");
+        e.stopPropagation();
+      }
+		</script>
+	</body>
+</html>

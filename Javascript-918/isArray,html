@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+		if (!Array.isArray) {
+				Array.isArray=function(obj){
+					document.write();
+					return Object.prototype.toString.call(obj)=="[object Array]";
+				}
+			}
+		
+		var obj1=[],obj2={},obj3=new Date();obj4={};
+		obj4.prototype=obj1;
+		document.write(
+			Array.isArray(obj1)+"<br>"+
+			Array.isArray(obj2)+"<br>"+
+			Array.isArray(obj3)+"<br>"+
+			Array.isArray(obj4)+"<br>"
+			);
+	</script>
+</body>
+</html>

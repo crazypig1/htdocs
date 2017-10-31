@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<p>Fibonacci</p>
+<script type="text/javascript">
+   function Fibonacci(){
+   var n1=1;
+   var n2=1;
+   var n3="";
+  for(i=1;i<=10;i++){
+  	n3+=(n1+"\t"+n2+"\t");
+  	n1=(n1+n2);
+  	n2=(n1+n2);
+	}
+	console.log("Fibonacci");
+	console.log(n3);
+	return n3;
+}
+	  document.write(Fibonacci());
+
+</script>
+
+
+<input type="button" onclick="Fibonacci()" value="Fibonacci">
+</body>
+</html>

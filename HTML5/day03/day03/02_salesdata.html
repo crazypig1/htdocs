@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{text-align: center}
+        canvas{background: #ddd}
+    </style>
+</head>
+<body>
+    <canvas id="c3" width="800" height="700"></canvas>
+    <script src="jquery.js"></script>
+    <script>
+        //1:获取画笔 11:35--11:45
+        var ctx = c3.getContext("2d");
+        //2:创建变量保存画布宽度高度边界距离
+        var w = 800;//画布宽度
+        var h = 700;//画布高度
+        var pd = 50;//统计图的内容到画布边界的距离
+        //3:绘制统计图的轮廓
+        ctx.strokeRect(pd,pd,w-2*pd,h-2*pd);
+        //4:发送ajax请求统计数据
+        $.ajax({
+          type:"GET",
+          url:"02_salesdata.php",
+            success:function(data){
+                console.log("成功接收到异步响应数据");
+                console.log(data);
+                //数据个数
+                var count = data.length;//12
+                //每个柱子/间距宽度
+                var barWidth = (w-2*pd)/(2*count+1);
+                //循环每个月份数据并且绘制矩形
+                for(var i=0;i<count;i++){
+                    var d = data[i];//第i月份数量
+                    //柱子宽度
+                    var bw = barWidth;
+                    //柱子高度
+                    var bh = d.value;
+                    //柱子x
+                    var bx = pd + (2*i+1)*barWidth;
+                    //柱子y
+                    var by = h-pd-bh;
+                    //绘制矩形
+                    //ctx.strokeRect(bx,by,bw,bh);
+                    ctx.fillStyle = rc();
+                    ctx.fillRect(bx,by,bw,bh);
+                }
+
+            },
+            error:function(){
+                alert("网络出现故障，请检查");
+            }
+        });
+        //5:返回数据，动态绘制图形
+        //6:函数 返回随机颜色值
+        //形如: rgb(225,0,0);
+        function rc(){
+            var r =  Math.floor(Math.random()*256);
+            var g =  Math.floor(Math.random()*256);
+            var b =  Math.floor(Math.random()*256);
+            return `rgb(${r},${g},${b})`;
+        }
+
+    </script>
+</body>
+</html>

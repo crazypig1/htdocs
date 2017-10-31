@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+   <h1>Worker示例</h1>
+   请输入数字 <input type="number" id="n2"/> <br/>
+   <button id="btn2">开始计算</button>
+   <div id="rs">结果:</div>
+   <script>
+    //1：为开始计算按钮绑定点击事件
+    btn2.onclick = function() {
+        //2: 获取用户输入数值
+        var n = n2.value;
+        //3: 创建Worker线程,并且并数值发送Worker线程
+        var w3 = new Worker("03.js");
+        w3.postMessage(n);
+        //4: 接收Worker线程返回计算结果保存  rs
+        w3.onmessage = function(e){
+            rs.innerHTML = e.data;
+        }
+    }
+
+   </script>
+</body>
+</html>

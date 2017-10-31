@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{text-align: center}
+        svg{background: #ddd}
+    </style>
+</head>
+<body>
+     <h1>h5-绘图矩形</h1>
+     <svg id="s3" width="500" height="400">
+    </svg>
+     <script>
+       //rn random number 返回指定范围内的随机数
+       function rn(min,max){
+           var n = Math.random()*(max-min)+min;
+           return Math.floor(n);
+       }
+       //rc random color 返回指定范围内的随机颜色
+       function rc(min,max){
+           var r = rn(min,max);
+           var g = rn(min,max);
+           var b = rn(min,max);
+           return `rgb(${r},${g},${b})`;
+       }//16:39--16:40
+       for(var i=0;i<30;i++) {
+           var c = document.createElementNS("http://www.w3.org/2000/svg",
+                   "circle");
+           c.setAttribute("r", rn(10, 80));//大小随机
+           c.setAttribute("cx", rn(0, 500));//位置随机
+           c.setAttribute("cy", rn(0, 400));//位置随机
+           c.setAttribute("fill", rc(0, 255));//颜色随机
+           c.setAttribute("fill-opacity", Math.random());
+           s3.appendChild(c);
+           //点击某个圆变大变淡紧后从DOM树删除
+           c.onclick = function(){
+               //1:预留this<==>c
+               var that = this;
+               //2:防止当前圆形再次被点击，取消事件监听
+               //标准小技巧:当前圆不能被再次点击
+               that.onclick = null;
+               //3:创建定时器，让圆形变大变淡
+               var t = setInterval(function(){
+                   var r = that.getAttribute("r");
+                   r *= 1.05;//增长5% 16:51-16:56
+                   that.setAttribute("r",r);
+                   var p = that.getAttribute("fill-opacity");
+                   p *= 0.9;//减少10%
+                   that.setAttribute("fill-opacity",p);
+                   if(p<0.0001){
+                       clearInterval(t);//停止定时器
+                       s3.removeChild(that);//删除当前元素
+                   }
+
+               },50);
+
+           }
+
+
+       }
+     </script>
+</body>
+</html>

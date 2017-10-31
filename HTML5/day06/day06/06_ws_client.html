@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn"></button>
+	<button id="btn1">创建连接</button>
+	<script>
+		var socket=null;
+		btn.onclick=function(){
+			socket=new WebSocket("ws://127.0.0.1:9001");
+			socket.send("hello...");
+			socket.onmessage=function(){
+				console.log("服务器返回的消息"+e.data)
+			}
+		}
+		btn1.onclick=function(){
+			socket.close();
+		}
+	</script>
+</body>
+</html>
